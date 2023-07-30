@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/880fc9516f.js" crossorigin="anonymous"></script>
+        <style>
+            *
+            {
+             margin:0;
+             padding:0;
+            }
+            .background
+            {
+            background-image: url('https://img.freepik.com/free-vector/restaurant-mural-wallpaper_23-2148695092.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            width:100%;
+            height:100%;
+            position: absolute;
+            }
+            .container{
+                width:100%;
+                height: 100vh;
+                display: flex;    
+                align-items: center;
+                justify-content: center;
+            }
+            .feedback-box
+            {
+                backdrop-filter: blur(20px);
+                padding: 50px 100px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .moji
+            {
+                width: 100px;
+                height:100px;
+                overflow: hidden;
+                margin-bottom: 30px;
+                border-radius: 50px;
+            }
+            .moji img
+            {
+                width:80px;
+                margin:0 10px;
+            }
+            #iog
+            {
+                display:flex;
+                align-items: center;
+                transform: translateX(-400px);
+                transition: 0.3s;
+
+            }
+            .star .fa-regular
+            {
+                font-size: 40px;
+                color:#e4e4e4;
+                cursor: pointer;
+            }
+            .content
+            {
+                align-content:center ;
+            }
+            #sum
+            {
+                border-radius: 20px;
+                width:100px;
+            }
+            </style>
+        
+    </head>
+    <body> 
+        <div class="background">
+          <div class="container">          
+             <div class="feedback-box">
+                <div class="moji">
+                  <div id="iog">
+                     <img src="https://em-content.zobj.net/thumbs/240/microsoft/319/angry-face_1f620.png">
+                     <img src="https://em-content.zobj.net/thumbs/240/microsoft/319/pensive-face_1f614.png">
+                     <img src="https://em-content.zobj.net/source/microsoft-teams/363/neutral-face_1f610.png">
+                     <img src="https://em-content.zobj.net/source/microsoft-teams/363/thumbs-up_1f44d.png">
+                    <img src="https://em-content.zobj.net/source/microsoft-teams/363/ok-hand_1f44c.png">
+                  </div>
+                </div>
+                <div class="star">
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                   <i class="fa-regular fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <div id="content">
+                   <p id="why"></p>
+                </div>
+                <div>
+                    <button id="sum" onclick="page()">submit</button>
+
+                </div>
+             </div>
+           </div>
+         </div>
+        <script>
+            var stars=document.getElementsByClassName("fa-regular");
+            var emoji=document.getElementById("iog");
+            var wri=document.getElementById("content");
+            stars[0].onclick=function(){
+                stars[0].style.color="#ffd93b";
+                stars[1].style.color="#e4e4e4";
+                stars[2].style.color="#e4e4e4";
+                stars[3].style.color="#e4e4e4";
+                stars[4].style.color="#e4e4e4";
+                emoji.style.transform="translateX(0)";
+                wri.innerHTML="<h4>worst</h4>";
+            }
+            stars[1].onclick=function(){
+                stars[0].style.color="#ffd93b";
+                stars[1].style.color="#ffd93b";
+                stars[2].style.color="#e4e4e4";
+                stars[3].style.color="#e4e4e4";
+                stars[4].style.color="#e4e4e4";
+                emoji.style.transform="translateX(-100px)";
+                wri.innerHTML="<h4>Bad</h4>";
+
+            }
+            stars[2].onclick=function(){
+                stars[0].style.color="#ffd93b";
+                stars[1].style.color="#ffd93b";
+                stars[2].style.color="#ffd39b";
+                stars[3].style.color="#e4e4e4";
+                stars[4].style.color="#e4e4e4";
+                emoji.style.transform="translateX(-200px)";
+                wri.innerHTML="<h4>Average</h4>";
+
+            }
+            stars[3].onclick=function(){
+                stars[0].style.color="#ffd93b";
+                stars[1].style.color="#ffd93b";
+                stars[2].style.color="#ffd39b";
+                stars[3].style.color="#ffd39b";
+                stars[4].style.color="#e4e4e4";
+                emoji.style.transform="translateX(-300px)";
+                wri.innerHTML="<h4>Good</h4>";
+
+            }
+            stars[4].onclick=function(){
+                stars[0].style.color="#ffd93b";
+                stars[1].style.color="#ffd93b";
+                stars[2].style.color="#ffd39b";
+                stars[3].style.color="#ffd39b";
+                stars[4].style.color="#ffd39b";
+                emoji.style.transform="translateX(-400px)";
+                wri.innerHTML="<h4>Excellent</h4>"
+
+            }
+            function page(){
+            window.open("thankyou.html","_self")
+        }
+        </script>
+    </body>
+</html>

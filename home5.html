@@ -1,0 +1,987 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/ab4dd1a8c1.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,600;6..12,700&display=swap');
+        :root
+        {
+            --red:#ff3838;
+        }
+        *{
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all .2s linear;
+        }
+        *::selection
+        {
+            background: var(--red);
+            color: white;
+        }
+        html
+        {
+            font-size: 62.5%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            scroll-padding-top: 6rem;
+        }
+        body
+        {
+            background: #f7f7f7;
+        }
+        section
+        {
+            padding:2rem 9%;
+        }
+        .heading
+        {
+            text-align: center;
+            font-size: 3.5rem;
+            padding: 1rem;
+            color: #666;
+        }
+        .heading span{
+            color:var(--red);
+        }
+        .btn
+        {
+            display:inline-block;
+            padding: .8rem 3rem;
+            border: .2rem solid var(--red);
+            color:var(--red);
+            cursor:pointer;
+            font-size: 1.7rem;
+            border-radius: .5rem;
+            position: relative;
+            overflow:hidden;
+            z-index: 0;
+            margin-top: 1rem;
+
+        }
+        .btn::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0%;
+            height: 100%;
+            background:var(--red);
+            transition: .3s lineaqr;
+            z-index: -1;
+        }
+        .btn:hover::before
+        {
+            width:100%;
+            left:0;
+        }
+        .btn:hover
+        {
+            color:#fff;
+        }
+
+        header
+        {
+            padding: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            padding: 2rem 9%;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        }
+        header .logo 
+        {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: #666;
+        }
+        header .logo i
+        {
+            padding-right: .5rem;
+            color: var(--red);
+        }
+        header .navbar a
+        {
+            font-size: 2rem;
+            margin-left: 2rem;
+            color: #666;
+        }
+        header .navbar a:hover
+        {
+            color: var(--red);
+        }
+        #menu-bar
+        {
+            font-size: 3rem;
+            cursor: pointer;
+            color: #666;
+            border: .1rem solid #666;
+            border-radius: .3rem;
+            padding: .5rem 1.5rem;
+            display: none;
+        }
+        .home
+        {
+            display: flex;
+            flex-wrap:wrap;
+            gap:1.5rem;
+            min-height: 100vh;
+            align-items: center;
+            background:url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pxfuel.com%2Fen%2Fdesktop-wallpaper-zmscy&psig=AOvVaw1futQhgOh6GsDGcnSObA-G&ust=1684516497393000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNDB1Yev__4CFQAAAAAdAAAAABAE") no-repeat;
+            background-size:cover;
+            background-posistion:center;
+        }
+        .home .content
+        {
+            flex:1 1 40rem;
+            padding-top: 6.5rem;
+        }
+        .home .image
+        {
+            flex:1 1 40rem;
+        }
+        .home .image img
+        {
+           width:100%;
+           padding:1 rem;
+           animation: float 3s linear infinite;
+        }
+        @keyframes float{
+            0%, 100%{
+                transform: translateY(5rem);
+            }
+            0%, 50%{
+                transform: translateY(3rem);
+            }
+        }
+        .home .content h3
+        {
+            font-size: 5rem;
+            color: #333;
+        }
+        .home .content p
+        {
+            font-size: 1.7rem;
+            color: #666;
+            padding: 1rem 0;
+        }
+        .speciality .box-container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .speciality .box-container .box
+        {
+            flex: 1 1 30rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            border: .1rem solid rgba(0, 0, 0, .3);
+            cursor: pointer;
+            border-radius: .5rem;
+        }
+        .speciality .box-container .box .image{
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+            position: absolute;
+            top:-100%;
+            left:0;
+        }
+        .speciality .box-container .box .content{
+            text-align: center;
+            background: #fff;
+            padding:2rem;
+
+        }
+        .speciality .box-container .box .content img
+        {
+            margin: 1.5rem 0;
+        }
+        .speciality .box-container .box .content h3{
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .speciality .box-container .box .content p{
+            font-size: 1.6rem;
+            color: #666;
+            padding:1rem 0;
+        }
+        .speciality .box-container .box:hover .image
+        {
+            top: 0;
+        }
+        .speciality .box-container .box:hover .content
+        {
+            transform: translateY(100%);
+        }
+        .popular .box-container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap:1.5rem;
+        }
+        .popular .box-container .box
+        {
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            border: .1rem solid rgba(0, 0, 0, .3);
+            border-radius: .5rem;
+            text-align: center;
+            flex:1 1 30rem;
+            position: relative;
+        }
+        .popular .box-container .box img
+        {
+            height: 25rem;
+            object-fit:fill;
+            width:100%;
+            border-radius: .5rem;
+        }
+        .popular .box-container .box .price
+        {
+            position: absolute;
+            top:3rem;
+            left:3rem;
+            background:var(--red);
+            color:#fff;
+            font-size:2rem;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+        }
+        .popular .box-container .box h3
+        {
+            color: #333;
+            font-size: 2.5rem;
+            padding-top: 1rem;
+        }
+        .popular .box-container .box .stars i
+        {
+            color: gold;
+            font-size: 1.7rem;
+            padding: 1rem .1rem;
+        }
+        .steps
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap:1.5rem;
+            padding: 1rem;
+        }
+        .steps .box
+        {
+            flex: 1 1 25rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        .steps .box img
+        {
+            border-radius: 50%;
+            border: 0.5rem solid #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+            height: 150px;
+            width: 150px;
+        }
+        .steps .box h3
+        {
+            font-size: 3rem;
+            color:#333;
+            padding: 1rem;
+        }
+        .gallery .box-container
+        {
+            display: flex;
+            flex-wrap: wrap;
+            gap:1.5rem; 
+        }
+        .gallery .box-container .box
+        {
+            height:25rem;
+            flex:1 1 30rem;
+            border:0.5rem solid #fff;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+            border-radius: .5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery .box-container .box img
+        {
+            height:100%;
+            width:100%;
+            object-fit: fill;
+        }
+        .gallery .box-container .box .content
+        {
+            position: absolute;
+            top:-100%;
+            left:0;
+            height:100%;
+            width:100%;
+            background:rgba(255,255,255,.8);
+            padding:2rem;
+            padding-top: 5rem;
+            text-align: center;
+        }
+        .gallery .box-container .box .content h3
+        {
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .gallery .box-container .box .content p 
+        {
+            font-size: 1.7rem;
+            color: #666;
+            padding:1rem 0;
+        }
+        .gallery .box-container .box:hover .content
+        {
+            top:0;
+        }
+        .review .box-container
+        {
+            display:flex;
+            flex-wrap: wrap;
+            gap:1.5rem;
+        }
+        .review .box-container .box{
+            text-align: center;
+            padding: 2rem;
+            border: 0.5em solid #fff;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+            border-radius: .5rem;
+            flex: 1 1 30rem;
+            background: #333;
+            margin-top: 6rem;
+        }
+        .review .box-container .box img{
+            height: 12rem;
+            width:12rem;
+            border-radius: 50%;
+            border: .5rem solid #fff;
+            margin-top: -8rem;
+            object-fit:fill;
+        }
+        .review .box-container .box h3
+        {
+            font-size: 2.5rem;
+            color: #fff;
+            padding: .5rem 0;
+        }
+        .review .box-container .box .stars i
+        {
+            font-size: 2.5rem;
+            color: var(--red);
+            padding: .5rem 0;
+        }
+        .review .box-container .box p
+        {
+            font-size: 1rem;
+            color: #eee;
+            padding: .5rem 0;
+        }
+        .bala
+        {
+            height: 100px;
+            width: 100px;
+        }
+        .review .box-container .box .stars p
+        {
+            font-size: 1.5rem;
+            color: #eee;
+            padding: 1rem 0;
+        }
+        .order .row
+        {
+            padding:2rem;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+            background: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            gap:1.5rem;
+            border-radius: .5rem;
+
+        }
+        .order .row .image 
+        {
+            flex:1 1 30rem;
+        }
+        .order .row .image .img
+        {
+            height: 100%;
+            width: 100%;
+            object-fit: fill;
+            border-radius: .5rem;
+        }
+        .order .row form
+        {
+            flex:1 1 50rem;
+            padding:1rem;
+        }
+        .order .row form .inputBox
+        {
+            display:flex;
+            justify-content: space-between;
+            flex-wrap:wrap;
+        }
+        .order .row form .inputBox input, .order .row form textarea
+        {
+            padding:1rem;
+            margin:1rem 0;
+            font-size: 1.7rem;
+            color:#333;
+            text-transform: none;
+            border: .1rem solid rgba(0,0,0,.3);
+            border-radius: .5rem;
+            width:49%;
+        }
+        .order .row form textarea
+        {
+            width:100%;
+            resize:none;
+            height:15rem;
+        }
+        .order .row form .btn
+        {
+            background: none;
+
+        }
+        .order .row form .btn:hover
+        {
+            background: var(--red);
+        }
+        .footer
+        {
+            background:#000;
+            text-align: center;
+        }
+        .footer share{
+            display: flex;
+            gap:1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .footer .credit
+        {
+            padding: 2.5rem 1rem;
+            color: #fff;
+            font-weight: normal;
+            font-size: 2rem;
+        }
+        .footer .credit span
+        {
+            color: var(--red);
+        }
+        #scroll-top
+        {
+            position: fixed;
+            top: -120%;
+            right: 2rem;
+            padding: 5rem 1.5rem;
+            font-size: 4rem;
+            background: var(--red);
+            color: #fff;
+            border-radius: .5rem;
+            transition: .5s linear;
+            z-index: 1000;
+        }
+        #scroll-top.active
+        {
+            top: calc(100% - 12rem);
+        }
+        loader-container
+        {
+            position: fixed;
+            top: 0; left: 0;
+            z-index: 10000;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+        .loader-container.fade-out
+        {
+            top: -120%;
+        }
+
+
+        
+        
+        @media(max-width:991px)
+        {
+            html
+            {
+                font-size: 55%;
+            }
+            header
+            {
+                padding:2rem;
+            }
+            section
+           {
+               padding:2rem;
+           }
+        }
+        @media(max-width:768px)
+        {
+            #menu-bar
+            {
+                display: initial;
+            }
+            header .navbar
+            {
+                position: absolute; 
+                top:100%;
+                left: 0;
+                right:0;
+                background: #f7f7f7;
+                border-top: .1rem solid rgba(0,0,0,.1);
+                clip-path: polygon (0 0, 100% 0, 100% 0, 0 0);
+            }
+            header .navbar .active
+            {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            }
+
+            header .navbar a
+            {
+
+                margin: 1.5rem; 
+                padding:1.5rem;
+                display: block;
+                border:.2rem solid rgba(0,0,0,.1);
+                border-left:.5rem solid var(--red); 
+                background: #fff; 
+            }
+        }
+        @media(max-width:450px)
+        {
+            html
+            {
+                font-size: 50%;
+            }
+            .order .row form .inputBox input
+            {
+                width:100%;
+            }
+           
+        }   
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="fas fa-utensils"></i>Food</a>
+
+        <div id="menu-bar" class="fa-solid fa-bars"></div>
+
+        <nav class="navbar">
+            <a href="#speciality">speciality</a>
+            <a href="#popular">popular</a>
+            <a href="#gallery">gallery</a>
+            <a href="#review">review</a>
+            <a href="#order">order</a>
+            <a href="#" onclick="myFunction()">About Us</a>
+        </nav>
+    </header>
+    <!--home-->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Food made with love</h3>
+            <p>Our restaurant is the best in town.We serve with atmost love and quality with the best and most friendly ambience.</p>
+            <a href="#" class="btn">Order now</a>
+        </div>
+        <div class="image">
+            <img src="https://png.pngtree.com/png-vector/20230408/ourmid/pngtree-creative-burger-exaggerated-delicious-food-photography-png-image_6687052.png">
+        </div>
+    </section>
+    <!--home end-->
+    <!--speciality-->
+    <section class="speciality" id="speciality">
+        <h1 class='heading'> Our <span>Speciality</span> </h1>
+        <div class="box-container">
+            <div class="box">
+                <img class='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7SF4KyBqe3kUUDA7FnJ2-52JEv8HgXS8FBA&usqp=CAU" alt="">
+                <div class="content">
+                    <img src="" alt="">
+                    <h3>Matar paneer</h3>
+                    <p>Indulge in the creamy and flavorful goodness of our signature Matar Paneer dish. Made with fresh peas and paneer cheese, our Matar Paneer is a classic North Indian dish that's sure to satisfy your taste buds. Our chefs use a blend of spices and herbs to create a rich and creamy tomato-based sauce that's topped off with cashews, cream, and butter. Served with your choice of rice or naan bread, our Matar Paneer is the perfect vegetarian.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTQZfPVTfMzjWJnZ4TEPdXzaK_8QQ-iNO3sQ&usqp=CAU" alt="">
+                <div class="content">
+                    <img src="" alt="">
+                    <h3>Biriyani</h3>
+                    <p>Experience the authentic flavors of India with our signature Biryani dish. Our chefs use the finest ingredients to create a mouthwatering blend of aromatic spices, basmati rice, and tender meat or vegetables. Our Biryani is slow-cooked to perfection, allowing the flavors to meld together and create a truly unforgettable taste. Served with raita and a side of your choice, our Biryani is the perfect meal for any occasion, whether you're.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5YrdFXgs3DyUPDvkvoLFSEfghwI4KG5HSIw&usqp=CAU" alt="">
+                <div class="content">
+                    <img src="" alt="">
+                    <h3>Noodles</h3>
+                    <p>Satisfy your cravings for Asian cuisine with our delicious Noodle dishes. Our chefs use only the freshest ingredients to create a variety of noodle dishes that are full of flavor and texture. From classic Pad Thai to spicy Singapore Noodles, our Noodle dishes are a perfect blend of sweet, sour, and savory flavors that will tantalize your taste buds. Whether you're looking for a quick lunch or a hearty dinner, our Noodle dishes are sure.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlU2t3qC_DbpKKYS_3zRabB8u7Wgsr1dBAbg&usqp=CAU" alt="">
+                <div class="content">
+                    <img src="" alt="">
+                    <h3>Ice creams</h3>
+                    <p>Indulge in the sweet and creamy goodness of our signature Ice Creams. Made with the finest ingredients, our Ice Creams are the perfect treat to cool you down on a hot day or to satisfy your sweet tooth. From classic Vanilla and Chocolate to unique flavors like Mango and Pistachio, our Ice Creams are a perfect blend of texture and flavor. Whether you prefer it in a cone or a cup, our Ice Creams are the perfect dessert for any occasion.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfSvbzSOdggSHcfc85Lggu5edmtACoor__PQ&usqp=CAU" alt="">
+                <div class="content">
+                    <img src="" alt="">
+                    <h3>Drinks</h3>
+                    <p>Quench your thirst with our refreshing selection of Drinks. Our bartenders use only the freshest ingredients to create a variety of cocktails, mocktails, and coolers that are full of flavor and texture. From classic Margaritas and Mojitos to unique creations like our signature Mango Lassi, our Drinks are a perfect blend of sweet, sour, and savory flavors that will tantalize your taste buds. Whether you're in the mood for something.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img class='image' src="https://www.nicepng.com/png/detail/366-3663128_dosa-png-south-indian-food-png.png" alt="">
+                <div class="content">
+                    <img src="" alt="">
+                    <h3>Dosa</h3>
+                    <p>Experience the authentic flavors of South India with our signature Masala Dosa dish. Made with a crispy rice and lentil crepe, our Masala Dosa is filled with a delicious potato and onion curry that's flavored with a blend of spices and herbs. Served with coconut chutney and sambar, our Masala Dosa is the perfect vegetarian meal for any occasion. Our chefs use only the freshest ingredients to create a dish that's full of flavor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--specility end-->
+    <!--popular-->
+    <section class="popular" id="popular">
+        <h1 class="heading"> Most <span>popular</span> foods </h1>
+        <div class="box-container">
+            <div class="box">
+                <span class="price">Rs200-Rs600</span>
+                <img src="https://www.pngall.com/wp-content/uploads/8/Non-Veg-Cuisine.png" alt="">
+                <h3>Starters</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    
+                </div>
+                <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="box">
+                <span class="price">Rs100-Rs300</span>
+                <img src="http://vfci.in/_assets/inner-new-pro/Instant%20Soup%20Powders.png" alt="">
+                <h3>Soups</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="box">
+                <span class="price">Rs200-Rs51000</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbwdT1sgyErtGASr3iTAZ8_aKwtGxG6x6RaQ&usqp=CAU" alt="">
+                <h3>Main course</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="box">
+                <span class="price">Rs200-Rs800</span>
+                <img src="https://www.pngarts.com/files/1/Ice-Cream-Desserts-PNG-Image-with-Transparent-Background.png" alt="">
+                <h3>Desserts</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="box">
+                <span class="price">Rs100-Rs150</span>
+                <img src="https://www.explorencr.com/wp-content/uploads/2022/12/Shree-Balaji-Chaat-Bhandar.png" alt="">
+                <h3>Chats</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">Order now</a>
+            </div>
+            <div class="box">
+                <span class="price">Rs200-Rs500</span>
+                <img src="https://st3.depositphotos.com/13324256/19449/i/600/depositphotos_194491710-stock-photo-alcohol-cocktails-lime-pomegranate-table.jpg" alt="">
+                <h3>Beverages</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <a href="#" class="btn">Order now</a>
+            </div>
+        </div>
+    </section>
+    <!--popular end-->
+    <!--steps-->
+    <section class="steps">
+        <div class="box">
+            <img src="https://kfcprodnecmsimage.azureedge.net/cmsimages/egy/imagestemp/104-Combo.png" alt="">
+            <h3>Choose your favorite food</h3>
+        </div>
+        <div class="box">
+            <img src="https://png.pngitem.com/pimgs/s/22-222412_home-delivery-hd-png-download.png" alt="">
+            <h3>Free and fast delivery</h3>
+        </div>
+        <div class="box">
+            <img src="https://cdn-icons-png.flaticon.com/512/1803/1803866.png" alt="">
+            <h3>Easy payment methods</h3>
+        </div>
+        <div class="box">
+            <img src="https://us.123rf.com/450wm/ahe555/ahe5552109/ahe555210900092/175137690-spaghetti-with-tomato-sauce-on-plate-vector-design-and-isolated-background.jpg?ver=6" alt="">
+            <h3>Enjoy your food</h3>
+        </div>
+    </section>
+    <!--steps end-->
+    <!--gallery-->
+    <section class="gallery" id="gallery">
+        <h1 class="heading">Our food <span> gallery</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="https://www.freepnglogos.com/uploads/food-png/fast-food-transparent-png-pictures-icons-and-png-18.png" alt="">
+                <div class="content">
+                    <h3>Tasty food</h3>
+                    <p>If the customer is very smart, he or she will be able to achieve the desired result.  To be erased, indeed.</p>
+                    <a href="#" class="btn">Order now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://www.freepnglogos.com/uploads/food-png/food-central-gyros-the-best-gyros-chicago-15.png" alt="">
+                <div class="content">
+                    <h3>Tasty food</h3>
+                    <p>If the customer is very smart, he or she will be able to achieve the desired result.  To be erased, indeed.</p>
+                    <a href="#" class="btn">Order now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png" alt="">
+                <div class="content">
+                    <h3>Tasty food</h3>
+                    <p>If the customer is very smart, he or she will be able to achieve the desired result.  To be erased, indeed.</p>
+                    <a href="#" class="btn">Order now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://www.theballantynehotel.com/assets/dining-galleryrest-768x225.jpg" alt="">
+                <div class="content">
+                    <h3>Our Restaurant</h3>
+                    <p>Clean and hygienic maintenance</p>
+                    <a href="#" class="btn">Book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://ak.jogurucdn.com/media/image/p15/media_gallery-2016-03-2-11-south_paradezomato_620cd40f56ac0feb6b15f1d8007a8a39.jpg" alt="">
+                <div class="content">
+                    <h3>Our Restaurant</h3>
+                    <p>Clean and hygienic maintenance</p>
+                    <a href="#" class="btn">Book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://b.zmtcdn.com/data/pictures/7/19567407/b4037e4afd55752608eb86b03e61a9f7.jpeg" alt="">
+                <div class="content">
+                    <h3>Our Restaurant</h3>
+                    <p>Clean and hygienic maintenance</p>
+                    <a href="#" class="btn">Book now</a>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://www.touchbistro.com/wp-content/uploads/2021/09/commercial-kitchen-layout-design-for-restaurants-thumbnail.jpg" alt="">
+                <div class="content">
+                    <h3>Our kitchen</h3>
+                    <p>We prepare your food with love and affection.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://media.istockphoto.com/id/1335052543/photo/waitress-serving-food-to-a-group-of-customers-at-a-restaurant.jpg?s=612x612&w=0&k=20&c=cJGmAEOWeUw93TnVDJ2M1YjvG2RQkFFGoSmmagO22Tg=" alt="">
+                <div class="content">
+                    <h3>Our service</h3>
+                    <p>We prepare your food with love and affection.</p>
+                </div>
+            </div>
+            <div class="box">
+                <img src="https://www.poornima.edu.in/wp-content/uploads/2019/07/hotel-1.jpg" alt="">
+                <div class="content">
+                    <h3>Our service</h3>
+                    <p>We prepare your food with love and affection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--gallery end-->
+    <!--review-->
+    <section class="review" id="review">
+        <h1 class="heading">Our customer's<span>Reviews</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTy47HOFcjwA_7O-acTS5M31WhARcXeM12-w&usqp=CAU" alt="" class="bala">
+                <h3>Joshua</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>The Restaurant itself is a very successful restaurant.  It is to be assumed that the inventor is not obliged to open the pleasures of free time or labor.</p>
+            </div>
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9yaDrS4JisFTSvwsW1YWKrQlNn5klIWvSYA&usqp=CAU" alt="" class="bala">
+                <h3>Varsha</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>The food here at this restaurant is at its best. It has the best authenticated flavors.</p>
+            </div>
+            <div class="box">
+                <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRUSveaqqqnYYxyG-E1AEYy7RwVX7z-uUg6vG69mwv5P1RMsSw7cgpY81d1Wc96v3_huxJOp7cv6D_0Hww" alt="" class="bala">
+                <h3>pooja hegde</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    
+                </div>
+                <p>The restaurat has the best ambience with friendly staffs providing with the most customer-friendly place.</p>
+            </div>
+            <div class="box">
+                <img src="https://static.toiimg.com/thumb/msid-99341376,width-1280,resizemode-4/99341376.jpg" alt="" class="bala">
+                <h3>Sunny leone</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    
+                    
+                </div>
+                <p>A must try restaurant for its authencity and simplicity.</p>
+            </div>
+        </div>
+    </section>
+
+    <!--order section-->
+    <section class="order" id="order">
+        <h1 class="heading"><span>order</span> now </h1>
+        <div class="row">
+            <div class="image">
+                <img src="https://explore.com.np/cms/assets/kcfinder/images/files/welcome-img.jpg" alt="">
+            </div>
+        <form action="">
+            <div class="inputBox">
+                <input type="text" placeholder="name">
+                <input type="email" placeholder="email">
+            </div>
+            <div class="inputBox">
+                <input type="number" placeholder="number">
+                <input type="text" placeholder="food name">
+            </div>
+            <textarea placeholder="address" name="" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="order now" class="btn">
+        </form> 
+        </div>
+
+    </section>
+    <!--footer-->
+    <section class="footer">
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">linkedin</a>
+            <a href="#" onclick="myFunction1()" class="btn">feedback</a>
+        </div>
+    
+    </section>
+    <!--footer end-->
+    <!--scroll-->
+    <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+    <!--scroll end-->
+    <!--loader-->
+    <div class="loader-container">
+        <img src="/Users/korrapatipraneethkumargowd/Downloads/loader.mp4" alt="">
+    </div>
+    <!--loader-->
+
+    <script>
+        let menu = document.querySelector('#menu-bar');
+        let navbar = document.querySelector('.navbar');
+        menu.onclick = () =>
+        {
+           menu.classList.toggle("fa-times");
+           menu.classList.toggle("active");
+        }   
+        windows.onscroll
+        {
+           menu.classList.remove("fa-times");
+           menu.classList.remove("active"); 
+        }
+        if(window.scrollY>60)
+        {
+            document.querySelector('#scroll-top').classList.add('active');
+        }else{
+            document.querySelector('#scroll-top').classList.remove('active');
+        }
+        function loader(){
+            document.querySelector('.loader-container').classList.add('fade-out');
+        }
+        function fadeOut()
+        {
+            setInterval(loader,3000);
+        }
+        window.onload=fadeOut();
+        function myFunction(){
+            window.open("aboutus.html","_self")
+        }
+        function myFunction1(){
+            window.open("feedback.html","_self")
+        }
+    </script>
+</body>
+</html>
